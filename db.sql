@@ -14,6 +14,7 @@ CREATE TABLE khachhang
 )
 CREATE TABLE khachhangvanglai
 (
+<<<<<<< HEAD
 	MaKH char(6) PRIMARY KEY
 )
 
@@ -42,6 +43,11 @@ CREATE TABLE apdungkhuyenmai
 	Loaimathang nvarchar(30)
 )
 
+=======
+	MaKH char(6),
+	SDT char(10)
+)
+>>>>>>> a94eb4dec40b7d4cdc9eb2b69aac96823d5aca94
 CREATE TABLE nhanvien
 (
 	CCCD char(12),
@@ -52,6 +58,14 @@ CREATE TABLE nhanvien
 	Diachi nvarchar(30)
 )
 
+<<<<<<< HEAD
+=======
+CREATE TABLE sdt_nhanvien 
+(
+	MaCH char(6),
+	SDT char(10)
+)
+>>>>>>> a94eb4dec40b7d4cdc9eb2b69aac96823d5aca94
 
 
 CREATE TABLE nhacungcap
@@ -64,7 +78,8 @@ CREATE TABLE nhacungcap
 
 CREATE TABLE sdt_nhacungcap
 (	
-	
+	MaNCC char(6),
+	SDT char(10),
 )
 
 CREATE TABLE dichvugiaohang
@@ -81,25 +96,21 @@ CREATE TABLE donhang
 	Trangthai varchar(30),
 	Ngaytao DATE
 )
-
 CREATE TABLE hoadon
 (
 	MaHD char(6) PRIMARY KEY,
 	Thoigianxuat DATETIME NOT NULL
 )
-
 CREATE TABLE sanpham
 (
 	
 )
-
 CREATE TABLE size
 (
 	MaSize char(6) PRIMARY KEY,
 	Tensize char(4) NOT NULL
 
 )
-
 CREATE TABLE mathang
 (
 	MaMH char(6) PRIMARY KEY,
@@ -107,7 +118,6 @@ CREATE TABLE mathang
 	LoaiMH nvarchar(30) NOT NULL,
 	Soluong int
 )
-
 CREATE TABLE cuahang
 (
 	MaCH char(6) PRIMARY KEY,
@@ -115,14 +125,16 @@ CREATE TABLE cuahang
 	Email varchar(40),
 	Diachi nvarchar(30) NOT NULL
 )
-
 CREATE TABLE sdt_cuahang
 (
 	MaCH char(6),
 	Sdt varchar(10)
 )
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> a94eb4dec40b7d4cdc9eb2b69aac96823d5aca94
 CREATE TABLE khuyenmai
 (
 	MaKM char(6) PRIMARY KEY,
@@ -135,11 +147,78 @@ CREATE TABLE khuyenmai
 	Dieukientoida varchar(20),
 	Giatrigiam float
 )
-
 CREATE TABLE taikhoan
 (	
 	MaTK char(6) PRIMARY KEY,
 	Username varchar(30),
 	Passwordd varchar(30),
 
+)
+
+CREATE TABLE nhanvienbanhang
+(
+	MaNV char(6)
+)
+
+CREATE TABLE nhanvienquanly_cuahang
+(
+	MaNV char(6),
+	MaCH char(6),
+	TenCH nvarchar(40),
+	Email varchar(40),
+	Diachi nvarchar(40)
+)
+
+CREATE TABLE cuahangonline
+(
+	MaCH char(6)
+)
+
+CREATE TABLE cuahangoffline
+(
+	MaCH char(6)
+)
+
+CREATE TABLE ban
+(
+	MaMH char(6),
+	MaCH char(6)
+)
+
+CREATE TABLE chua
+(
+	MaDH char(6),
+	MaSP char(6),
+	ID char(6),
+	Soluong int,
+	Giamua int
+)
+
+CREATE TABLE sanphamcosize
+(
+	MaSP char(6),
+	IDsize char(6),
+	Soluongnhap int,
+	Soluongcon int
+)
+
+CREATE TABLE donhangonline
+(
+	Madon char(6),
+	MaCH char(6),
+	Diachi nvarchar(40),
+	SDT char(10),
+	Tennguoinhan nvarchar(40)
+)
+
+CREATE TABLE donhangoffline
+(
+	Madon char(6),
+	MaCH char(6) 
+)
+
+CREATE TABLE hinhthucnhanhang
+(
+	Madon char(6),
+	Hinhthuc varchar(40)
 )
