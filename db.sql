@@ -1,7 +1,6 @@
 CREATE DATABASE SHOPsDB
 USE SHOPsDB
 
---DROP DATABASE SHOPsDB
 
 
 CREATE TABLE khachhang
@@ -14,7 +13,6 @@ CREATE TABLE khachhang
 )
 CREATE TABLE khachhangvanglai
 (
-<<<<<<< HEAD
 	MaKH char(6) PRIMARY KEY
 )
 
@@ -43,11 +41,11 @@ CREATE TABLE apdungkhuyenmai
 	Loaimathang nvarchar(30)
 )
 
-=======
+CREATE TABLE sdt_khachhang
+(
 	MaKH char(6),
-	SDT char(10)
+	SDT char(10) 
 )
->>>>>>> a94eb4dec40b7d4cdc9eb2b69aac96823d5aca94
 CREATE TABLE nhanvien
 (
 	CCCD char(12),
@@ -58,14 +56,12 @@ CREATE TABLE nhanvien
 	Diachi nvarchar(30)
 )
 
-<<<<<<< HEAD
-=======
+
 CREATE TABLE sdt_nhanvien 
 (
 	MaCH char(6),
 	SDT char(10)
 )
->>>>>>> a94eb4dec40b7d4cdc9eb2b69aac96823d5aca94
 
 
 CREATE TABLE nhacungcap
@@ -103,7 +99,15 @@ CREATE TABLE hoadon
 )
 CREATE TABLE sanpham
 (
-	
+	MaSP char(6) PRIMARY KEY,
+	MaMH char(6),
+	TenSP nvarchar(40) NOT NULL,
+	Gianiemyet INT,
+	Chatlieu nvarchar(30),
+	MaCH char(6),
+	MaNCC char(6),
+	Mota nvarchar(40)
+
 )
 CREATE TABLE size
 (
@@ -114,7 +118,7 @@ CREATE TABLE size
 CREATE TABLE mathang
 (
 	MaMH char(6) PRIMARY KEY,
-	TenMH nvarchar(30) NOT NULL,
+	TenMH nvarchar(40) NOT NULL,
 	LoaiMH nvarchar(30) NOT NULL,
 	Soluong int
 )
@@ -130,11 +134,7 @@ CREATE TABLE sdt_cuahang
 	MaCH char(6),
 	Sdt varchar(10)
 )
-<<<<<<< HEAD
 
-
-=======
->>>>>>> a94eb4dec40b7d4cdc9eb2b69aac96823d5aca94
 CREATE TABLE khuyenmai
 (
 	MaKM char(6) PRIMARY KEY,
@@ -164,7 +164,7 @@ CREATE TABLE nhanvienquanly_cuahang
 (
 	MaNV char(6),
 	MaCH char(6),
-	TenCH nvarchar(40),
+	TenCH nvarchar(40) NOT NULL,
 	Email varchar(40),
 	Diachi nvarchar(40)
 )
