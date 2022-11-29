@@ -14,10 +14,9 @@ CREATE TABLE khachhang
 )
 CREATE TABLE sdt_khachhang 
 (
-	
+	MaKH char(6),
+	SDT char(10)
 )
-
-
 CREATE TABLE nhanvien
 (
 	CCCD char(12),
@@ -27,13 +26,11 @@ CREATE TABLE nhanvien
 	Email varchar(40),
 	Diachi nvarchar(30)
 )
-
 CREATE TABLE sdt_nhanvien 
 (
-	
+	MaCH char(6),
+	SDT char(10)
 )
-
-
 CREATE TABLE nhacungcap
 (
 	MaNCC char(6) PRIMARY KEY,
@@ -41,19 +38,17 @@ CREATE TABLE nhacungcap
 	Email varchar(40),
 	Diachi nvarchar(30)
 )
-
 CREATE TABLE sdt_nhacungcap
 (	
-	
+	MaNCC char(6),
+	SDT char(10),
 )
-
 CREATE TABLE dichvugiaohang
 (
 	MaGH char(6) PRIMARY KEY,
 	Tendichvu nvarchar(40) NOT NULL,
 	Sdt int
 )
-
 CREATE TABLE donhang
 (
 	MaDH char(5) PRIMARY KEY,
@@ -61,25 +56,21 @@ CREATE TABLE donhang
 	Trangthai varchar(30),
 	Ngaytao DATE
 )
-
 CREATE TABLE hoadon
 (
 	MaHD char(5) PRIMARY KEY,
 	Thoigianxuat DATETIME NOT NULL
 )
-
 CREATE TABLE sanpham
 (
 	
 )
-
 CREATE TABLE size
 (
 	MaSize char(5) PRIMARY KEY,
 	Tensize char(4) NOT NULL
 
 )
-
 CREATE TABLE mathang
 (
 	MaMH char(6) PRIMARY KEY,
@@ -87,7 +78,6 @@ CREATE TABLE mathang
 	LoaiMH nvarchar(30) NOT NULL,
 	Soluong int
 )
-
 CREATE TABLE cuahang
 (
 	MaCH char(6) PRIMARY KEY,
@@ -95,12 +85,10 @@ CREATE TABLE cuahang
 	Email varchar(40),
 	Diachi nvarchar(30) NOT NULL
 )
-
 CREATE TABLE sdt_cuahang
 (
 	
 )
-
 CREATE TABLE khuyenmai
 (
 	MaKM char(6) PRIMARY KEY,
@@ -113,7 +101,6 @@ CREATE TABLE khuyenmai
 	Dieukientoida varchar(20),
 	Giatrigiam float
 )
-
 CREATE TABLE taikhoan
 (	
 	MaTK char(6) PRIMARY KEY,
