@@ -12,7 +12,35 @@ CREATE TABLE khachhang
 	Diachi nvarchar(30)
 
 )
+CREATE TABLE khachhangvanglai
+(
+	MaKH char(6) PRIMARY KEY
+)
 
+CREATE TABLE khachhangthanthietcotaikhoan
+(
+	MaKH char(6) PRIMARY KEY,
+	bdate DATE,
+	Gioitinh char(1),
+	MaTK char(6),
+	Sodiemtichluy int
+)
+
+CREATE TABLE vanchuyen
+(
+	MaGH char(6),
+	MaDH char(6) PRIMARY KEY,
+	Diachi nvarchar(30),
+	Taixe nvarchar(40)
+
+)
+
+CREATE TABLE apdungkhuyenmai
+(
+	MaHD char(6),
+	MaKM char(6),
+	Loaimathang nvarchar(30)
+)
 
 CREATE TABLE nhanvien
 (
@@ -24,10 +52,6 @@ CREATE TABLE nhanvien
 	Diachi nvarchar(30)
 )
 
-CREATE TABLE sdt_nhanvien 
-(
-	
-)
 
 
 CREATE TABLE nhacungcap
@@ -94,8 +118,10 @@ CREATE TABLE cuahang
 
 CREATE TABLE sdt_cuahang
 (
-	
+	MaCH char(6),
+	Sdt varchar(10)
 )
+
 
 CREATE TABLE khuyenmai
 (
