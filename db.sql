@@ -1,6 +1,7 @@
 CREATE DATABASE SHOPsDB
 USE SHOPsDB
 
+--Drop database SHOPsDB
 
 CREATE TABLE taikhoan
 (
@@ -34,6 +35,7 @@ CREATE TABLE khachhangvanglai
 	MaKH char(6) PRIMARY KEY,
 	CONSTRAINT fk_khachhangvanglai_makh FOREIGN KEY (MaKH)
 				REFERENCES khachhang(MaKH)
+				ON DELETE CASCADE
 )
 
 CREATE TABLE khachhangthanthietcotaikhoan
@@ -43,10 +45,12 @@ CREATE TABLE khachhangthanthietcotaikhoan
 	Sodiemtichluy int,
 	MaKH char(6),
 	CONSTRAINT fk_khachhangthanthietcotaikhoan_makh FOREIGN KEY (MaKH)
-				REFERENCES khachhang(MaKH),
+				REFERENCES khachhang(MaKH)
+				ON DELETE CASCADE,
 	MaTK char(6),
 	CONSTRAINT fk_khachhangthanthietcotaikhoan_matk FOREIGN KEY (MaTK)
-				REFERENCES taikhoan(MaTK),
+				REFERENCES taikhoan(MaTK)
+				ON DELETE CASCADE,
 )
 
 CREATE TABLE donhang
@@ -57,6 +61,7 @@ CREATE TABLE donhang
 	MaKH char(6),
 	CONSTRAINT fk_donhang_makh FOREIGN KEY (MaKH)
 				REFERENCES khachhang(MaKH)
+				ON DELETE CASCADE
 )
 
 CREATE TABLE hinhthucnhanhang
@@ -64,7 +69,8 @@ CREATE TABLE hinhthucnhanhang
 	Hinhthuc varchar(40),
 	MaDH char(6),
 	CONSTRAINT fk_hinhthucnhanhang_madh FOREIGN KEY (MaDH)
-				REFERENCES donhang(MaDH),
+				REFERENCES donhang(MaDH)
+				ON DELETE CASCADE,
 	PRIMARY KEY (MaDH, Hinhthuc)
 )
 
@@ -82,10 +88,12 @@ CREATE TABLE vanchuyen
 	Taixe nvarchar(40),
 	MaGH char(6),
 	CONSTRAINT fk_vanchuyen_magh FOREIGN KEY (MaGH)
-				REFERENCES dichvugiaohang(MaGH),
+				REFERENCES dichvugiaohang(MaGH)
+				ON DELETE SET NULL,
 	MaDH char(6) PRIMARY KEY,
 	CONSTRAINT fk_vanchuyen_madh FOREIGN KEY (MaDH)
 				REFERENCES donhang(MaDH)
+				ON DELETE CASCADE
 )
 
 CREATE TABLE khuyenmai
@@ -123,7 +131,8 @@ CREATE TABLE sdt_nhanvien
 	SDT varchar(10),
 	MaNV char(6),
 	CONSTRAINT fk_sdt_nhanvien_manv FOREIGN KEY (MaNV)
-				REFERENCES nhanvien(MaNV),
+				REFERENCES nhanvien(MaNV)
+				ON DELETE CASCADE,
 	PRIMARY KEY (MaNV, SDT)
 )
 
@@ -135,10 +144,12 @@ CREATE TABLE nhanvienquanly_cuahang
 	Diachi nvarchar(40),
 	MaTK char(6),
 	CONSTRAINT fk_nhanvienquanly_cuahang_matk FOREIGN KEY (MaTK)
-				REFERENCES taikhoan(MaTK),
+				REFERENCES taikhoan(MaTK)
+				ON DELETE SET NULL,
 	MaNV char(6),
 	CONSTRAINT fk_nhanvienquanly_cuahang_manv FOREIGN KEY (MaNV)
 				REFERENCES nhanvien(MaNV)
+				ON DELETE CASCADE
 )
 
 
@@ -160,6 +171,7 @@ CREATE TABLE nhanvienbanhang
 	MaNV char(6) PRIMARY KEY,
 	CONSTRAINT fk_nhanvienbanhang_manv FOREIGN KEY (MaNV)
 				REFERENCES nhanvien(MaNV)
+				ON DELETE CASCADE
 )
 
 CREATE TABLE hoadon
@@ -173,10 +185,12 @@ CREATE TABLE hoadon
 	Giagiam int,
 	MaDH char(6),
 	CONSTRAINT fk_hoadon_madh FOREIGN KEY (MaDH)
-			REFERENCES donhang(MaDH),
+			REFERENCES donhang(MaDH)
+			ON DELETE CASCADE,
 	MaNV char(6),
 	CONSTRAINT fk_hoadon_manv FOREIGN KEY (MaNV)
 			REFERENCES nhanvienbanhang(MaNV)
+			ON DELETE SET NULL
 )
 
 CREATE TABLE apdungkhuyenmai
@@ -184,10 +198,12 @@ CREATE TABLE apdungkhuyenmai
 	Loaimathang nvarchar(40),
 	MaHD char(6),
 	CONSTRAINT fk_apdungkhuyenmai_mahd FOREIGN KEY (MaHD)
-		REFERENCES hoadon(MaHD),
+		REFERENCES hoadon(MaHD)
+		ON DELETE CASCADE,
 	MaKM char(6),
 	CONSTRAINT fk_apdungkhuyenmai_makm FOREIGN KEY (MaKM)
-		REFERENCES khuyenmai(MaKM),
+		REFERENCES khuyenmai(MaKM)
+		ON DELETE CASCADE,
 	PRIMARY KEY (MaHD, MaKM)
 )
 
@@ -195,14 +211,16 @@ CREATE TABLE cuahangonline
 (
 	MaCH char(6) PRIMARY KEY,
 	CONSTRAINT fk_cuahangonline_mach FOREIGN KEY (MaCH)
-		REFERENCES nhanvienquanly_cuahang(MaCH),
+		REFERENCES nhanvienquanly_cuahang(MaCH)
+		ON DELETE CASCADE,
 )
 
 CREATE TABLE cuahangoffline
 (
 	MaCH char(6) PRIMARY KEY,
 	CONSTRAINT fk_cuahangoffline_mach FOREIGN KEY (MaCH)
-		REFERENCES nhanvienquanly_cuahang(MaCH),
+		REFERENCES nhanvienquanly_cuahang(MaCH)
+		ON DELETE CASCADE,
 )
 
 CREATE TABLE donhangonline
@@ -212,20 +230,24 @@ CREATE TABLE donhangonline
 	Tennguoinhan nvarchar(40),
 	MaDH char(6) PRIMARY KEY,
 	CONSTRAINT fk_donhangonline_madh FOREIGN KEY (MaDH)
-			REFERENCES donhang(MaDH),
+			REFERENCES donhang(MaDH)
+			ON DELETE CASCADE,
 	MaCH char(6),
 	CONSTRAINT fk_donhangonline_mach FOREIGN KEY (MaCH)
 			REFERENCES cuahangonline(MaCH)
+			ON DELETE CASCADE
 )
 
 CREATE TABLE donhangoffline
 (
 	MaDH char(6) PRIMARY KEY,
 	CONSTRAINT fk_donhangoffline_madh FOREIGN KEY (MaDH)
-			REFERENCES donhang(MaDH),
+			REFERENCES donhang(MaDH)
+			ON DELETE CASCADE,
 	MaCH char(6),
 	CONSTRAINT fk_donhangoffline_mach FOREIGN KEY (MaCH)
 			REFERENCES cuahangoffline(MaCH)
+			ON DELETE CASCADE
 )
 
 CREATE TABLE mathang
@@ -239,10 +261,12 @@ CREATE TABLE ban
 (
 	MaMH char(6),
 	CONSTRAINT fk_ban_mamh FOREIGN KEY (MaMH)
-			REFERENCES mathang(MaMH),
+			REFERENCES mathang(MaMH)
+			ON DELETE CASCADE,
 	MaCH char(6),
 	CONSTRAINT fk_ban_mach FOREIGN KEY (MaCH)
-			REFERENCES nhanvienquanly_cuahang(MaCH),
+			REFERENCES nhanvienquanly_cuahang(MaCH)
+			ON DELETE CASCADE,
 	PRIMARY KEY (MaMH, MaCH)
 )
 
@@ -259,7 +283,8 @@ CREATE TABLE sdt_nhacungcap
 	SDT char(10),
 	MaNCC char(6),
 	CONSTRAINT fk_sdt_nhacungcap_mannc FOREIGN KEY (MaNCC)
-			REFERENCES nhacungcap(MaNCC),
+			REFERENCES nhacungcap(MaNCC)
+			ON DELETE CASCADE,
 	PRIMARY KEY (MaNCC, SDT)
 )
 
@@ -272,13 +297,16 @@ CREATE TABLE sanpham
 	Mota nvarchar(40),
 	MaCH char(6),
 	CONSTRAINT fk_sanpham_mach FOREIGN KEY (MaCH)
-			REFERENCES nhanvienquanly_cuahang(MaCH),
+			REFERENCES nhanvienquanly_cuahang(MaCH)
+			ON DELETE CASCADE,
 	MaNCC char(6),
 	CONSTRAINT fk_sanpham_mannc FOREIGN KEY (MaNCC)
-			REFERENCES nhacungcap(MaNCC),
+			REFERENCES nhacungcap(MaNCC)
+			ON DELETE CASCADE,
 	MaMH char(6),
 	CONSTRAINT fk_sanpham_mamh FOREIGN KEY (MaMH)
 			REFERENCES mathang(MaMH)
+			ON DELETE CASCADE
 )
 
 CREATE TABLE size
@@ -288,6 +316,7 @@ CREATE TABLE size
 	MaMH char(6),
 	CONSTRAINT fk_size_mamh FOREIGN KEY (MaMH)
 			REFERENCES mathang(MaMH)
+			ON DELETE CASCADE
 )
 
 CREATE TABLE sanphamcosize
@@ -296,7 +325,8 @@ CREATE TABLE sanphamcosize
 	Soluongcon int,
 	MaSP char(6),
 	CONSTRAINT fk_sanphamcosize_masp FOREIGN KEY (MaSP)
-			REFERENCES sanpham(MaSP),
+			REFERENCES sanpham(MaSP)
+			ON DELETE CASCADE,
 	IDsize char(6),
 	CONSTRAINT fk_sanpham_idsize FOREIGN KEY (IDsize)
 			REFERENCES size(ID),
@@ -309,10 +339,12 @@ CREATE TABLE chua
 	Giamua int,
 	MaDH char(6),
 	CONSTRAINT fk_chua_madh FOREIGN KEY (MaDH)
-			REFERENCES donhang(MaDH),
+			REFERENCES donhang(MaDH)
+			ON DELETE CASCADE,
 	MaSP char(6),
 	CONSTRAINT fk_chua_masp FOREIGN KEY (MaSP)
-			REFERENCES sanpham(MaSP),
+			REFERENCES sanpham(MaSP)
+			ON DELETE CASCADE,
 	IDsize char(6),
 	CONSTRAINT fk_chua_idsize FOREIGN KEY (IDsize)
 			REFERENCES size(ID),
