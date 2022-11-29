@@ -1,14 +1,14 @@
-CREATE DATABASE SHOPsDB
-USE SHOPsDB
+--CREATE DATABASE SHOPsDB
+--USE SHOPsDB
 
 --Drop database SHOPsDB
 
 CREATE TABLE taikhoan
 (
 	MaTK char(6) PRIMARY KEY,
-	Username varchar(40),
-	Password varchar(40),
-	LoaiTK varchar(40)
+	Username varchar(40) NOT NULL,
+	Password varchar(40) NOT NULL,
+	LoaiTK varchar(40) NOT NULL
 )
 
 CREATE TABLE khachhang
@@ -22,11 +22,11 @@ CREATE TABLE khachhang
 
 CREATE TABLE sdt_khachhang
 (
-	ID char(6),
 	SDT varchar(10),
 	MaKH char(6),
 	CONSTRAINT fk_khachhang_makh FOREIGN KEY (MaKH)
-				REFERENCES khachhang(MaKH),
+				REFERENCES khachhang(MaKH)
+				ON DELETE CASCADE,
 	PRIMARY KEY (MaKH, SDT)
 )
 
@@ -57,7 +57,7 @@ CREATE TABLE donhang
 (
 	MaDH char(6) PRIMARY KEY,
 	Trangthai varchar(30),
-	Ngaytao DATE,
+	Ngaytao DATE NOT NULL,
 	MaKH char(6),
 	CONSTRAINT fk_donhang_makh FOREIGN KEY (MaKH)
 				REFERENCES khachhang(MaKH)
@@ -84,7 +84,7 @@ CREATE TABLE dichvugiaohang
 
 CREATE TABLE vanchuyen
 (
-	Diachi nvarchar(30),
+	Diachi nvarchar(30) NOT NULL,
 	Taixe nvarchar(40),
 	MaGH char(6),
 	CONSTRAINT fk_vanchuyen_magh FOREIGN KEY (MaGH)
@@ -99,11 +99,11 @@ CREATE TABLE vanchuyen
 CREATE TABLE khuyenmai
 (
 	MaKM char(6) PRIMARY KEY,
-	TenKM nvarchar(40),
+	TenKM nvarchar(40) NOT NULL,
 	LoaiKM nvarchar(40),
-	PhantramKM float NOT NULL,
-	Thoigianbatdau DATETIME NOT NULL,
-	Thoigianketthuc DATETIME NOT NULL,
+	PhantramKM float,
+	Thoigianbatdau DATETIME,
+	Thoigianketthuc DATETIME,
 	Dieukientoithieu varchar(40),
 	Dieukientoida varchar(40),
 	Giatrigiam float,
@@ -158,7 +158,8 @@ CREATE TABLE sdt_cuahang
 	SDT varchar(10),
 	MaCH char(6),
 	CONSTRAINT fk_sdt_cuahang_mach FOREIGN KEY (MaCH)
-				REFERENCES nhanvienquanly_cuahang(MaCH),
+				REFERENCES nhanvienquanly_cuahang(MaCH)
+				ON DELETE CASCADE,
 	PRIMARY KEY (MaCH, SDT)
 )
 
@@ -225,9 +226,9 @@ CREATE TABLE cuahangoffline
 
 CREATE TABLE donhangonline
 (
-	Diachi nvarchar(40),
-	SDT varchar(10),
-	Tennguoinhan nvarchar(40),
+	Diachi nvarchar(40) NOT NULL,
+	SDT varchar(10) NOT NULL,
+	Tennguoinhan nvarchar(40) NOT NULL,
 	MaDH char(6) PRIMARY KEY,
 	CONSTRAINT fk_donhangonline_madh FOREIGN KEY (MaDH)
 			REFERENCES donhang(MaDH)
