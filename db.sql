@@ -1,9 +1,12 @@
 CREATE DATABASE SHOPsDB
 USE SHOPsDB
 
+--DROP DATABASE SHOPsDB
+
+
 CREATE TABLE khachhang
 (
-	MaKH char(5) PRIMARY KEY,
+	MaKH char(6) PRIMARY KEY,
 	Hoten nvarchar(40) NOT NULL,
 	Email varchar(40),
 	Diachi nvarchar(30)
@@ -11,14 +14,13 @@ CREATE TABLE khachhang
 )
 CREATE TABLE sdt_khachhang 
 (
-	
+	MaKH char(6),
+	SDT char(10)
 )
-
-
 CREATE TABLE nhanvien
 (
 	CCCD char(12),
-	MaNV char(7) PRIMARY KEY,
+	MaNV char(6) PRIMARY KEY,
 	Hoten nvarchar(40) NOT NULL,
 	bdate DATE,
 	Email varchar(40),
@@ -27,7 +29,8 @@ CREATE TABLE nhanvien
 
 CREATE TABLE sdt_nhanvien 
 (
-	
+	MaCH char(6),
+	SDT char(10)
 )
 
 
@@ -41,7 +44,8 @@ CREATE TABLE nhacungcap
 
 CREATE TABLE sdt_nhacungcap
 (	
-	
+	MaNCC char(6),
+	SDT char(10),
 )
 
 CREATE TABLE dichvugiaohang
@@ -53,30 +57,26 @@ CREATE TABLE dichvugiaohang
 
 CREATE TABLE donhang
 (
-	MaDH char(5) PRIMARY KEY,
+	MaDH char(6) PRIMARY KEY,
 	Hinhthuc varchar(40),
 	Trangthai varchar(30),
 	Ngaytao DATE
 )
-
 CREATE TABLE hoadon
 (
-	MaHD char(5) PRIMARY KEY,
+	MaHD char(6) PRIMARY KEY,
 	Thoigianxuat DATETIME NOT NULL
 )
-
 CREATE TABLE sanpham
 (
 	
 )
-
 CREATE TABLE size
 (
-	MaSize char(5) PRIMARY KEY,
+	MaSize char(6) PRIMARY KEY,
 	Tensize char(4) NOT NULL
 
 )
-
 CREATE TABLE mathang
 (
 	MaMH char(6) PRIMARY KEY,
@@ -84,7 +84,6 @@ CREATE TABLE mathang
 	LoaiMH nvarchar(30) NOT NULL,
 	Soluong int
 )
-
 CREATE TABLE cuahang
 (
 	MaCH char(6) PRIMARY KEY,
@@ -92,12 +91,10 @@ CREATE TABLE cuahang
 	Email varchar(40),
 	Diachi nvarchar(30) NOT NULL
 )
-
 CREATE TABLE sdt_cuahang
 (
 	
 )
-
 CREATE TABLE khuyenmai
 (
 	MaKM char(6) PRIMARY KEY,
@@ -110,11 +107,78 @@ CREATE TABLE khuyenmai
 	Dieukientoida varchar(20),
 	Giatrigiam float
 )
-
 CREATE TABLE taikhoan
 (	
 	MaTK char(6) PRIMARY KEY,
 	Username varchar(30),
 	Passwordd varchar(30),
 
+)
+
+CREATE TABLE nhanvienbanhang
+(
+	MaNV char(6)
+)
+
+CREATE TABLE nhanvienquanly_cuahang
+(
+	MaNV char(6),
+	MaCH char(6),
+	TenCH nvarchar(40),
+	Email varchar(40),
+	Diachi nvarchar(40)
+)
+
+CREATE TABLE cuahangonline
+(
+	MaCH char(6)
+)
+
+CREATE TABLE cuahangoffline
+(
+	MaCH char(6)
+)
+
+CREATE TABLE ban
+(
+	MaMH char(6),
+	MaCH char(6)
+)
+
+CREATE TABLE chua
+(
+	MaDH char(6),
+	MaSP char(6),
+	ID char(6),
+	Soluong int,
+	Giamua int
+)
+
+CREATE TABLE sanphamcosize
+(
+	MaSP char(6),
+	IDsize char(6),
+	Soluongnhap int,
+	Soluongcon int
+)
+
+CREATE TABLE donhangonline
+(
+	Madon char(6),
+	MaCH char(6),
+	Diachi nvarchar(40),
+	SDT char(10),
+	Tennguoinhan nvarchar(40)
+)
+
+CREATE TABLE donhangoffline
+(
+	Madon char(6),
+	MaCH char(6) 
+)
+
+CREATE TABLE hinhthucnhanhang
+(
+	Madon char(6),
+	Hinhthuc varchar(40)
 )
