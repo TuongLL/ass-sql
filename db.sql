@@ -1,3 +1,5 @@
+GO
+DROP DATABASE SHOPsDB
 CREATE DATABASE SHOPsDB
 USE SHOPsDB
 
@@ -142,10 +144,6 @@ CREATE TABLE nhanvienquanly_cuahang
 	TenCH nvarchar(40) NOT NULL,
 	Email varchar(40),
 	Diachi nvarchar(40),
-	MaTK char(6),
-	CONSTRAINT fk_nhanvienquanly_cuahang_matk FOREIGN KEY (MaTK)
-				REFERENCES taikhoan(MaTK)
-				ON DELETE SET NULL,
 	MaNV char(6),
 	CONSTRAINT fk_nhanvienquanly_cuahang_manv FOREIGN KEY (MaNV)
 				REFERENCES nhanvien(MaNV)
