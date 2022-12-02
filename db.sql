@@ -292,10 +292,6 @@ CREATE TABLE sanpham
 	Gianiemyet INT,
 	Chatlieu nvarchar(40),
 	Mota nvarchar(4000),
-	MaCH char(6),
-	CONSTRAINT fk_sanpham_mach FOREIGN KEY (MaCH)
-			REFERENCES nhanvienquanly_cuahang(MaCH)
-			ON DELETE CASCADE,
 	MaNCC char(6),
 	CONSTRAINT fk_sanpham_mannc FOREIGN KEY (MaNCC)
 			REFERENCES nhacungcap(MaNCC)
@@ -304,6 +300,19 @@ CREATE TABLE sanpham
 	CONSTRAINT fk_sanpham_mamh FOREIGN KEY (MaMH)
 			REFERENCES mathang(MaMH)
 			ON DELETE CASCADE
+)
+
+CREATE TABLE sanphamcuacuahang
+(
+	MaSP char(6),
+	CONSTRAINT fk_sanphamcuacuahang_masp FOREIGN KEY (MaSP)
+			REFERENCES sanpham(MaSP)
+			ON DELETE CASCADE,
+	MaCH char(6),
+	CONSTRAINT fk_sanphamcuacuahang_mach FOREIGN KEY (MaCH)
+			REFERENCES nhanvienquanly_cuahang(MaCH)
+			ON DELETE CASCADE,
+	PRIMARY KEY (MaSP, MaCH)
 )
 
 CREATE TABLE size
