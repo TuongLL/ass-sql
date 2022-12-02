@@ -8,7 +8,7 @@ CREATE TABLE taikhoan
 (
 	MaTK char(6) PRIMARY KEY,
 	Username varchar(40),
-	Password varchar(40),
+	Passwordd varchar(40),
 	LoaiTK varchar(40)
 )
 
@@ -17,8 +17,7 @@ CREATE TABLE khachhang
 	MaKH char(6) PRIMARY KEY,
 	Hoten nvarchar(40) NOT NULL,
 	Email varchar(40),
-	Diachi nvarchar(30)
-
+	Diachi nvarchar(40)
 )
 
 CREATE TABLE sdt_khachhang
@@ -57,7 +56,7 @@ CREATE TABLE khachhangthanthietcotaikhoan
 CREATE TABLE donhang
 (
 	MaDH char(6) PRIMARY KEY,
-	Trangthai varchar(30),
+	Trangthai varchar(40),
 	Ngaytao DATE,
 	MaKH char(6),
 	CONSTRAINT fk_donhang_makh FOREIGN KEY (MaKH)
@@ -85,7 +84,7 @@ CREATE TABLE dichvugiaohang
 
 CREATE TABLE vanchuyen
 (
-	Diachi nvarchar(30),
+	Diachi nvarchar(40),
 	Taixe nvarchar(40),
 	MaGH char(6),
 	CONSTRAINT fk_vanchuyen_magh FOREIGN KEY (MaGH)
@@ -120,8 +119,10 @@ CREATE TABLE nhanvien
 	Email varchar(40),
 	Diachi nvarchar(40),
 	Sogiolamviec int,
+	MaCH char(6),
 	MaTK char(6),
-	MaCH char(6)
+	CONSTRAINT fk_nhanvien_matk FOREIGN KEY (MaTK)
+				REFERENCES taikhoan(MaTK)
 --	CONSTRAINT fk_nhanvien_mach FOREIGN KEY (MaCH)
 --				REFERENCES nhanvienquanly_cuahang(MaCH)
 	
@@ -179,7 +180,6 @@ CREATE TABLE hoadon
 	Tongtien int,
 	Sodiemsudung int,
 	Hinhthuc varchar(40),
-	Thoigian DATETIME,
 	Giagiam int,
 	MaDH char(6),
 	CONSTRAINT fk_hoadon_madh FOREIGN KEY (MaDH)
@@ -277,7 +277,7 @@ CREATE TABLE nhacungcap
 
 CREATE TABLE sdt_nhacungcap
 (	
-	SDT char(10),
+	SDT varchar(10),
 	MaNCC char(6),
 	CONSTRAINT fk_sdt_nhacungcap_mannc FOREIGN KEY (MaNCC)
 			REFERENCES nhacungcap(MaNCC)
