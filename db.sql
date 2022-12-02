@@ -252,7 +252,6 @@ CREATE TABLE mathang
 (
 	MaMH char(6) PRIMARY KEY,
 	TenMH nvarchar(40) NOT NULL,
-	Soluong int
 )
 
 CREATE TABLE ban
@@ -292,7 +291,7 @@ CREATE TABLE sanpham
 	TenSP nvarchar(40) NOT NULL,
 	Gianiemyet INT,
 	Chatlieu nvarchar(40),
-	Mota nvarchar(40),
+	Mota nvarchar(4000),
 	MaCH char(6),
 	CONSTRAINT fk_sanpham_mach FOREIGN KEY (MaCH)
 			REFERENCES nhanvienquanly_cuahang(MaCH)

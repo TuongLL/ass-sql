@@ -157,3 +157,44 @@ INSERT INTO sdt_nhacungcap (MaNCC, SDT)
 VALUES ('NCC434', '1900272737')
 INSERT INTO sdt_nhacungcap (MaNCC, SDT)
 VALUES ('NCC225', '0305728805')
+
+
+----INSERT mathang
+INSERT INTO mathang (MaMH, TenMH)
+VALUES ('AO0000', 'Áo')
+INSERT INTO mathang (MaMH, TenMH)
+VALUES ('QU0000', 'Quần')
+INSERT INTO mathang (MaMH, TenMH)
+VALUES ('GI0000', 'Giày')
+
+
+----INSERT ban
+INSERT INTO ban (MaMH, MaCH)
+VALUES ('AO0000', 'CH0001')
+INSERT INTO ban (MaMH, MaCH)
+VALUES ('QU0000', 'CH0001')
+INSERT INTO ban (MaMH, MaCH)
+VALUES ('GI0000', 'CH0001')
+INSERT INTO ban (MaMH, MaCH)
+VALUES ('AO0000', 'CH0002')
+INSERT INTO ban (MaMH, MaCH)
+VALUES ('QU0000', 'CH0002')
+INSERT INTO ban (MaMH, MaCH)
+VALUES ('GI0000', 'CH0002')
+INSERT INTO ban (MaMH, MaCH)
+VALUES ('AO0000', 'CH0003')
+INSERT INTO ban (MaMH, MaCH)
+VALUES ('QU0000', 'CH0003')
+INSERT INTO ban (MaMH, MaCH)
+VALUES ('GI0000', 'CH0003')
+INSERT INTO ban (MaMH, MaCH)
+VALUES ('AO0000', 'CH0004')
+INSERT INTO ban (MaMH, MaCH)
+VALUES ('QU0000', 'CH0004')
+INSERT INTO ban (MaMH, MaCH)
+VALUES ('GI0000', 'CH0004')
+
+
+----INSERT sanpham
+INSERT INTO sanpham (MaSP, TenSP, Gianiemyet, Chatlieu, MaNCC, MaMH, Mota)
+VALUES ('AO0001', 'CROSS CUT POLO / BLACK-GREY COLOR', '225000', 'Cotton', 'NCC434', 'AO0000', 'Bảng size OuterityS : Dài 69 Rộng 52.5 | 1m50 - 1m65, 45 - 55KgM : Dài 73 Rộng 55 | 1m60 - 1m75, 50 - 65KgL: Dài : 76.5 Rộng: 57.5 | 1m7 - 1m8, 65Kg - 80Kg👉 Nếu chưa biết lựa size bạn có thể inbox để được chúng mình tư vấn.🔹 Chính sách đổi trả Outerity.– Miễn phí đổi hàng cho khách mua ở Outerity trong trường hợp bị lỗi từ nhà sản xuất, giao nhầm hàng, nhầm size.- Quay video mở sản phẩm khi nhận hàng, nếu không có video unbox, khi phát hiện lỗi phải báo ngay cho Outerity trong 1 ngày tính từ ngày giao hàng thành công. Qua 1 ngày chúng mình không giải quyết khi không có video unbox.– Sản phẩm đổi trong thời gian 3 ngày kể từ ngày nhận hàng– Sản phẩm còn mới nguyên tem, tags, sản phẩm chưa giặt và không dơ bẩn, hư hỏng bởi những tác nhân bên ngoài cửa hàng sau khi mua hàng.👉 Đặc biệt:– Tất cả sản phẩm ver 3.0 sẽ được hỗ trợ trả hàng hoàn tiền trong vòng 05 ngày kể từ ngày nhận hàng nếu có trải nghiệm không tốt, không hài lòng về sản phẩm– Chấp nhận trả hàng hoàn tiền với sản phẩm đã qua sử dụng, không còn nguyên tag tuy nhiên sản phẩm phải còn nguyên vẹn, không bị rách, bung chỉ, bạc màu do quá trình sử dụng🔹Liên hệ: 0862642568/ Web / Outerity.com/ IG / @Outerity.sg/ FB / Outerity')
