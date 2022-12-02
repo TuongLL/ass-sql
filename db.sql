@@ -9,7 +9,7 @@ CREATE TABLE taikhoan
 	MaTK char(6) PRIMARY KEY,
 	Username varchar(40),
 	Passwordd varchar(40),
-	LoaiTK varchar(40)
+	LoaiTK nvarchar(40)
 )
 
 CREATE TABLE khachhang
@@ -56,8 +56,9 @@ CREATE TABLE khachhangthanthietcotaikhoan
 CREATE TABLE donhang
 (
 	MaDH char(6) PRIMARY KEY,
-	Trangthai varchar(40),
+	Trangthai nvarchar(40),
 	Ngaytao DATE,
+	Hinhthuc varchar(40),
 	MaKH char(6),
 	CONSTRAINT fk_donhang_makh FOREIGN KEY (MaKH)
 				REFERENCES khachhang(MaKH)
@@ -104,8 +105,8 @@ CREATE TABLE khuyenmai
 	PhantramKM float NOT NULL,
 	Thoigianbatdau DATETIME NOT NULL,
 	Thoigianketthuc DATETIME NOT NULL,
-	Dieukientoithieu varchar(40),
-	Dieukientoida varchar(40),
+	Dieukientoithieu nvarchar(40),
+	Dieukientoida nvarchar(40),
 	Giatrigiam float,
 	Soluongtoida int
 )
@@ -293,7 +294,7 @@ CREATE TABLE sanpham
 	Chatlieu nvarchar(40),
 	Mota nvarchar(4000),
 	MaNCC char(6),
-	CONSTRAINT fk_sanpham_mannc FOREIGN KEY (MaNCC)
+	CONSTRAINT fk_sanpham_mancc FOREIGN KEY (MaNCC)
 			REFERENCES nhacungcap(MaNCC)
 			ON DELETE CASCADE,
 	MaMH char(6),

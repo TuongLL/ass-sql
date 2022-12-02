@@ -28,15 +28,15 @@ END
 GO
 --INSERT chua
 CREATE PROCEDURE insertchua
-	@soluong int,
-	@giamua int,
 	@madh char(6),
 	@masp char(6),
-	@idsize char(6)
+	@idsize char(6),
+	@soluong int,
+	@giamua int
 AS
 BEGIN
-	INSERT INTO chua (Soluong, Giamua, MaDH, MaSP)
-	VALUES (@soluong, @giamua, @madh, @masp)
+	INSERT INTO chua (Soluong, Giamua, MaDH, MaSP, IDSize)
+	VALUES (@soluong, @giamua, @madh, @masp, @idsize)
 END
 
 
@@ -80,13 +80,14 @@ GO
 ----INSERT donhang
 CREATE PROCEDURE insertdonhang
 	@madh char(6),
-	@trangthai varchar(40),
+	@trangthai nvarchar(40),
 	@ngaytao date,
+	@hinhthuc varchar(40),
 	@makh char(6)
 AS
 BEGIN
-	INSERT INTO donhang (MaDH, Trangthai, Ngaytao, MaKH)
-	VALUES (@madh, @trangthai, @ngaytao, @makh)
+	INSERT INTO donhang (MaDH, Trangthai, Ngaytao, Hinhthuc, MaKH)
+	VALUES (@madh, @trangthai, @ngaytao, @hinhthuc, @makh)
 END
 
 
@@ -160,15 +161,15 @@ BEGIN
 	VALUES (@makh, @hoten, @email, @diachi)
 END
 
-	
+
 GO
 ----INSERT khachangthanthietcotaikhoan
 CREATE PROCEDURE insertkhachhangthanthietcotaikhoan
+	@makh char(6),
 	@bdate date,
 	@gioitinh char(1),
-	@sodiemtichluy int,
-	@makh char(6),
-	@matk char(6)
+	@matk char(6),
+	@sodiemtichluy int
 AS
 BEGIN
 	INSERT INTO khachhangthanthietcotaikhoan (bdate, Gioitinh, Sodiemtichluy, MaKH, MaTK)
@@ -196,8 +197,8 @@ CREATE PROCEDURE insertkhuyenmai
 	@phamtramkm float,
 	@thoigianbatdau datetime,
 	@thoigianketthuc datetime,
-	@dieukientoithieu varchar(40),
-	@dieukientoida varchar(40),
+	@dieukientoithieu nvarchar(40),
+	@dieukientoida nvarchar(40),
 	@giatrigiam float,
 	@soluongtoida int
 AS
@@ -236,15 +237,15 @@ END
 GO
 ----INSERT nhanvien
 CREATE PROCEDURE insertnhanvien
-	@cccd char(12),
 	@manv char(6),
+	@mach char(6),
+	@matk char(6),
 	@ten nvarchar(40),
+	@cccd char(12),
 	@bdate date,
 	@email varchar(40),
 	@diachi nvarchar(40),
-	@sogiolamviec int,
-	@matk char(6),
-	@mach char(6)
+	@sogiolamviec int
 AS
 BEGIN
 	INSERT INTO nhanvien (MaNV, MaCH, MaTK, Ten, CCCD, Bdate, Email, Diachi, Sogiolamviec)
@@ -282,12 +283,12 @@ GO
 ----INSERT sanpham
 CREATE PROCEDURE insertsanpham
 	@masp char(6),
-	@tensp char(6),
+	@tensp nvarchar(40),
 	@gianiemyet int,
 	@chatlieu nvarchar(40),
-	@mota nvarchar(4000),
 	@mancc char(6),
-	@mamh char(6)
+	@mamh char(6),
+	@mota nvarchar(4000)
 AS
 BEGIN
 	INSERT INTO sanpham (MaSP, TenSP, Gianiemyet, Chatlieu, MaNCC, MaMH, Mota)
@@ -298,14 +299,26 @@ END
 GO
 ----INSERT sanphamcosize
 CREATE PROCEDURE insertsanphamcosize
-	@soluongnhap int,
-	@soluongcon int,
 	@masp char(6),
-	@idsize char(6)
+	@idsize char(6),
+	@soluongnhap int,
+	@soluongcon int
 AS
 BEGIN
 	INSERT INTO sanphamcosize (Soluongnhap, Soluongcon, MaSP, IDsize)
 	VALUES (@soluongnhap, @soluongcon, @masp, @idsize)
+END
+
+
+GO
+----INSERT sanphamcuacuahang
+CREATE PROCEDURE insertsanphamcuacuahang
+	@masp char(6),
+	@mach char(6)
+AS
+BEGIN
+	INSERT INTO sanphamcuacuahang (MaSP, MaCH)
+	VALUES (@masp, @mach)
 END
 
 
@@ -336,20 +349,20 @@ END
 GO
 ----INSERT sdt_nhacungcap
 CREATE PROCEDURE insertsdt_nhacungcap
-	@makh char(6),
+	@mancc char(6),
 	@sdt char(10)
 AS
 BEGIN
-	INSERT INTO sdt_khachhang (MaKH, SDT)
-	VALUES (@makh, @sdt)
+	INSERT INTO sdt_nhacungcap(MaNCC, SDT)
+	VALUES (@mancc, @sdt)
 END
 
 
 GO
 ----INSERT sdt_nhanvien
 CREATE PROCEDURE insertsdt_nhanvien
-	@sdt varchar(10),
-	@manv char(6)
+	@manv char(6),
+	@sdt varchar(10)
 AS
 BEGIN
 	INSERT INTO sdt_nhanvien (MaNV, SDT)
@@ -376,7 +389,7 @@ CREATE PROCEDURE inserttaikhoan
 	@matk char(6),
 	@username varchar(40),
 	@passwordd varchar(40),
-	@loaitk varchar(40)
+	@loaitk nvarchar(40)
 AS
 BEGIN
 	INSERT INTO taikhoan (MaTK, Username, Passwordd, LoaiTK)
