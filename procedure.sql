@@ -288,11 +288,12 @@ CREATE PROCEDURE insertsanpham
 	@chatlieu nvarchar(40),
 	@mancc char(6),
 	@mamh char(6),
+	@hinhanh varchar(200),
 	@mota nvarchar(4000)
 AS
 BEGIN
-	INSERT INTO sanpham (MaSP, TenSP, Gianiemyet, Chatlieu, MaNCC, MaMH, Mota)
-	VALUES (@masp, @tensp, @gianiemyet, @chatlieu, @mancc, @mamh, @mota)
+	INSERT INTO sanpham (MaSP, TenSP, Gianiemyet, Chatlieu, MaNCC, MaMH, Hinhanh, Mota)
+	VALUES (@masp, @tensp, @gianiemyet, @chatlieu, @mancc, @mamh, @hinhanh, @mota)
 END
 
 

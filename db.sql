@@ -293,6 +293,7 @@ CREATE TABLE sanpham
 	Gianiemyet INT,
 	Chatlieu nvarchar(40),
 	Mota nvarchar(4000),
+	Hinhanh varchar(200),
 	MaNCC char(6),
 	CONSTRAINT fk_sanpham_mancc FOREIGN KEY (MaNCC)
 			REFERENCES nhacungcap(MaNCC)
