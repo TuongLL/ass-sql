@@ -56,7 +56,7 @@ EXEC insertsdt_nhanvien 'NV6725', '0689713358'
 EXEC insertsdt_nhanvien 'NV7195', '0764532168'
 EXEC insertsdt_nhanvien 'NV8452', '0642318046'
 EXEC insertsdt_nhanvien 'NV8918', '0897120469'
-select * from sdt_nhanvien
+
 
 ----INSERT nhanvienbanhang
 EXEC insertnhanvienbanhang 'NV5829'
@@ -68,7 +68,7 @@ EXEC insertnhanvienbanhang 'NV8918'
 
 
 ----INSERT khuyenmai
-EXEC insertkhuyenmai 'KM1292', 'Black Friday', N'Khuyến mãi giảm giá tất cả sản phẩm', '0.5', '2022-11-1 00:00:00', '2022-12-24 23:59:59', N'Mua hai sản phẩm trở lên', N'Áp dụng tối đa ba sản phẩm', NULL, 5
+EXEC insertkhuyenmai 'KM1292', 'Black Friday', N'Khuyến mãi giảm giá tất cả sản phẩm', 0.5, '2022-11-1 00:00:00', '2022-12-24 23:59:59', 2, 3, NULL, 5
 
 
 ----INSERT khachhang

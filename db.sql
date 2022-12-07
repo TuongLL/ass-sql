@@ -105,8 +105,8 @@ CREATE TABLE khuyenmai
 	PhantramKM float NOT NULL,
 	Thoigianbatdau DATETIME NOT NULL,
 	Thoigianketthuc DATETIME NOT NULL,
-	Dieukientoithieu nvarchar(40),
-	Dieukientoida nvarchar(40),
+	Dieukientoithieu int,
+	Dieukientoida int,
 	Giatrigiam float,
 	Soluongtoida int
 )
@@ -167,7 +167,6 @@ ADD CONSTRAINT fk_nhanvien_mach FOREIGN KEY (MaCH)
 
 CREATE TABLE nhanvienbanhang
 (
-	MaNVBH char(6),
 	MaNV char(6) PRIMARY KEY,
 	CONSTRAINT fk_nhanvienbanhang_manv FOREIGN KEY (MaNV)
 				REFERENCES nhanvien(MaNV)

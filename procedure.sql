@@ -197,8 +197,8 @@ CREATE PROCEDURE insertkhuyenmai
 	@phamtramkm float,
 	@thoigianbatdau datetime,
 	@thoigianketthuc datetime,
-	@dieukientoithieu nvarchar(40),
-	@dieukientoida nvarchar(40),
+	@dieukientoithieu int,
+	@dieukientoida int,
 	@giatrigiam float,
 	@soluongtoida int
 AS
