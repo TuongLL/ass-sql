@@ -12,8 +12,6 @@ as
 	from sanpham sp join mathang mh on sp.MaMH = mh.MaMH
 	where sp.Gianiemyet > @gia and mh.TenMH = @loai
 
-exec laysanphamtheoloaivagia 200000, 'Áo'
-
 go
 create or alter procedure laythongtinchitietsanpham
 	@masp char(6)
@@ -27,8 +25,8 @@ create or alter procedure laythongtingiohang
 	@makh char(6)
 as
 	select *
-	from donhang, chua
-	where donhang.MaKH = @makh and chua.MaDH = donhang.MaDH and donhang.Trangthai = N'Chưa giao hàng'
+	from donhang d, chua c join sanpham s on c.MaSP = s.MaSP
+	where d.MaKH = @makh and c.MaDH = d.MaDH and d.Trangthai = N'Chưa giao hàng'
 
 go
 create or alter procedure dangnhap
