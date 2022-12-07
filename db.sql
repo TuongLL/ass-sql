@@ -22,7 +22,6 @@ CREATE TABLE khachhang
 
 CREATE TABLE sdt_khachhang
 (
-	ID char(6),
 	SDT varchar(10),
 	MaKH char(6),
 	CONSTRAINT fk_khachhang_makh FOREIGN KEY (MaKH)
