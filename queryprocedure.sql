@@ -9,8 +9,10 @@ create or alter procedure laysanphamtheoloaivagia
 	@loai nvarchar(40)
 as
 	select sp.TenSP, sp.Gianiemyet, sp.Hinhanh
-	from sanpham sp, mathang mh
+	from sanpham sp join mathang mh on sp.MaMH = mh.MaMH
 	where sp.Gianiemyet > @gia and mh.TenMH = @loai
+
+exec laysanphamtheoloaivagia 200000, 'Áo'
 
 go
 create or alter procedure laythongtinchitietsanpham
