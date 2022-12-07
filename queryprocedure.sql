@@ -3,7 +3,6 @@ as
 	select *
 	from sanpham
 
-
 go
 create or alter procedure laysanphamtheoloaivagia
 	@gia int,
@@ -13,8 +12,6 @@ as
 	from sanpham sp, mathang mh
 	where sp.Gianiemyet > @gia and mh.TenMH = @loai
 
-exec laysanphamtheoloaivagia 200000, 'Áo'
-
 go
 create or alter procedure laythongtinchitietsanpham
 	@masp char(6)
@@ -22,8 +19,6 @@ as
 	select  sanpham.MaSP, TenSP, Gianiemyet, Chatlieu, Mota, Hinhanh, MaNCC, sanpham.MaMH,Soluongcon, Soluongnhap, IDsize, Loaisize 
 	from ((sanpham join sanphamcosize on sanpham.MaSP = sanphamcosize.MaSP) join size on IDsize = id)
 	where sanpham.MaSP = @masp;
-
-exec laythongtinchitietsanpham 'SP0001'
 
 go
 create or alter procedure laythongtingiohang
@@ -33,9 +28,6 @@ as
 	from donhang, chua
 	where donhang.MaKH = @makh and chua.MaDH = donhang.MaDH and donhang.Trangthai = N'Chưa giao hàng'
 
-exec laythongtingiohang 'KH6304'
-
- 
 go
 create or alter procedure dangnhap
 	@username varchar(40),
@@ -60,11 +52,6 @@ begin
 		raiserror (N'Lỗi: Sai tên đăng nhập hoặc mật khẩu',16,1)
 end
 
-exec dangnhap 'matti', 'matti@123'
-
-
-select * from khachhangthanthietcotaikhoan
-select * from khachhang
 go
 create or alter procedure dangky
 	@matk char(6),
@@ -87,7 +74,3 @@ begin
 	insert into khachhangthanthietcotaikhoan (MaKH, MaTK, Gioitinh, bdate, Sodiemtichluy)
 	values (@makh, @matk, @gioitinh, @bdate, 0)
 end
-
-exec dangky 'TK8672', 'KH7235', 'quanbaobao', 'quanbaobao1@', 'tuong@gmail.com', N'Hoàng Nhật Quân', '10 BK', 'M', '2002-08-06'
-	
-select * from khachhang
