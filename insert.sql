@@ -117,9 +117,9 @@ EXEC insertsdt_nhacungcap 'NCC225', '0305728805'
 
 
 ----INSERT mathang
-EXEC insertmathang 'MH0001', 'Áo'
-EXEC insertmathang 'MH0002', 'Quần'
-EXEC insertmathang 'MH0003', 'Giày'
+EXEC insertmathang 'MH0001', N'Áo'
+EXEC insertmathang 'MH0002', N'Quần'
+EXEC insertmathang 'MH0003', N'Giày'
 
 
 ----INSERT ban
