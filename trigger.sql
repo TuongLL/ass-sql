@@ -156,15 +156,3 @@ BEGIN
 		rollback
 	END
 END;
-
---khuyen mai
-
---hoadon
-
-
-
-
-
-
-
-

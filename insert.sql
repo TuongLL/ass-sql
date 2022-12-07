@@ -30,9 +30,6 @@ EXEC insertnhanvien 'NV6725', 'CH0004', 'TK3360','Francisco Chang', '75331105723
 EXEC insertnhanvien 'NV8918', 'CH0002', 'TK4574','Diego Roel', '156849961941', '1995-03-01', 'hamza.thijs63@hotmail.com','Hauptstr. 29', '55'
 EXEC insertnhanvien 'NV7195', 'CH0001', 'TK6106','Maria Larsson', '329249856987', '1992-04-05', 'matthias_martens16@hotmail.com','Berkeley Gardens 12 Brewery', '57'
 
-ALTER TABLE nhanvien
-CHECK CONSTRAINT fk_nhanvien_mach
-
 
 ----INSERT nhanvienquanly_cuahang
 EXEC insertnhanvienquanly_cuahang 'CH0001', N'Black Pink Panther Thủ Đức', 'bpptd@gmail.com', N'TP. Thủ Đức, TP. HCM', 'NV7195'
@@ -59,7 +56,7 @@ EXEC insertsdt_nhanvien 'NV6725', '0689713358'
 EXEC insertsdt_nhanvien 'NV7195', '0764532168'
 EXEC insertsdt_nhanvien 'NV8452', '0642318046'
 EXEC insertsdt_nhanvien 'NV8918', '0897120469'
-
+select * from sdt_nhanvien
 
 ----INSERT nhanvienbanhang
 EXEC insertnhanvienbanhang 'NV5829'
@@ -177,7 +174,7 @@ EXEC insertsanpham 'SP0034', N'Quần Dài Vải Đơn Giản Y Nguyên Bản Ve
 EXEC insertsanpham 'SP0035', N'Quần Dài Vải Đơn Giản Y Nguyên Bản Ver19', '457000', 'Cotton Plus', 'NCC434', 'MH0002', 'https://cdn2.yame.vn/pimg/quan-dai-vai-on-gian-y-nguyen-ban-ver19-0021281/4769c9b9-df03-ed00-5f79-0019a4bcf755.jpg?w=540&h=756', N'Chất liệu: Jean Cotton, Thành phần: 99% cotton 1 spandex - Độ bền cao, mang đến sự thoải mái ở phần hông và đùi nhưng vẫn rất gọn gàng'
 EXEC insertsanpham 'SP0036', N'Quần Tây Đơn Giản Y Nguyên Bản Ver25', '427000', 'Rayon Plus', 'NCC434', 'MH0002', 'https://cdn2.yame.vn/pimg/quan-tay-on-gian-y-nguyen-ban-ver25-0021429/957fc47b-534d-5a00-c4b8-0019a4b6e56b.jpg?w=540&h=756', N'Chất liệu: Jean Cotton, Thành phần: 99% cotton 1 spandex - Độ bền cao, mang đến sự thoải mái ở phần hông và đùi nhưng vẫn rất gọn gàng'
 
-select * from sanpham
+
 ----INSERT size
 EXEC insertsize 'SZ4563', 'S', 'MH0001'
 EXEC insertsize 'SZ2040', 'M', 'MH0001'
@@ -284,6 +281,190 @@ EXEC insertsanphamcosize 'SP0012', 'SZ9765', 10, 10
 EXEC insertsanphamcosize 'SP0012', 'SZ0064', 10, 10
 EXEC insertsanphamcosize 'SP0012', 'SZ2806', 10, 10
 EXEC insertsanphamcosize 'SP0012', 'SZ4498', 10, 10
+
+EXEC insertsanphamcosize 'SP0013', 'SZ0499', 10, 10
+EXEC insertsanphamcosize 'SP0013', 'SZ2336', 10, 10
+EXEC insertsanphamcosize 'SP0013', 'SZ5133', 10, 10
+EXEC insertsanphamcosize 'SP0013', 'SZ9084', 10, 10
+EXEC insertsanphamcosize 'SP0013', 'SZ3371', 10, 10
+EXEC insertsanphamcosize 'SP0013', 'SZ0557', 10, 10
+EXEC insertsanphamcosize 'SP0013', 'SZ7610', 10, 10
+
+EXEC insertsanphamcosize 'SP0014', 'SZ0499', 10, 10
+EXEC insertsanphamcosize 'SP0014', 'SZ2336', 10, 10
+EXEC insertsanphamcosize 'SP0014', 'SZ5133', 10, 10
+EXEC insertsanphamcosize 'SP0014', 'SZ9084', 10, 10
+EXEC insertsanphamcosize 'SP0014', 'SZ3371', 10, 10
+EXEC insertsanphamcosize 'SP0014', 'SZ0557', 10, 10
+EXEC insertsanphamcosize 'SP0014', 'SZ7610', 10, 10
+
+EXEC insertsanphamcosize 'SP0015', 'SZ0499', 10, 10
+EXEC insertsanphamcosize 'SP0015', 'SZ2336', 10, 10
+EXEC insertsanphamcosize 'SP0015', 'SZ5133', 10, 10
+EXEC insertsanphamcosize 'SP0015', 'SZ9084', 10, 10
+EXEC insertsanphamcosize 'SP0015', 'SZ3371', 10, 10
+EXEC insertsanphamcosize 'SP0015', 'SZ0557', 10, 10
+EXEC insertsanphamcosize 'SP0015', 'SZ7610', 10, 10
+
+EXEC insertsanphamcosize 'SP0016', 'SZ0499', 10, 10
+EXEC insertsanphamcosize 'SP0016', 'SZ2336', 10, 10
+EXEC insertsanphamcosize 'SP0016', 'SZ5133', 10, 10
+EXEC insertsanphamcosize 'SP0016', 'SZ9084', 10, 10
+EXEC insertsanphamcosize 'SP0016', 'SZ3371', 10, 10
+EXEC insertsanphamcosize 'SP0016', 'SZ0557', 10, 10
+EXEC insertsanphamcosize 'SP0016', 'SZ7610', 10, 10
+
+EXEC insertsanphamcosize 'SP0017', 'SZ0499', 10, 10
+EXEC insertsanphamcosize 'SP0017', 'SZ2336', 10, 10
+EXEC insertsanphamcosize 'SP0017', 'SZ5133', 10, 10
+EXEC insertsanphamcosize 'SP0017', 'SZ9084', 10, 10
+EXEC insertsanphamcosize 'SP0017', 'SZ3371', 10, 10
+EXEC insertsanphamcosize 'SP0017', 'SZ0557', 10, 10
+EXEC insertsanphamcosize 'SP0017', 'SZ7610', 10, 10
+
+EXEC insertsanphamcosize 'SP0018', 'SZ0499', 10, 10
+EXEC insertsanphamcosize 'SP0018', 'SZ2336', 10, 10
+EXEC insertsanphamcosize 'SP0018', 'SZ5133', 10, 10
+EXEC insertsanphamcosize 'SP0018', 'SZ9084', 10, 10
+EXEC insertsanphamcosize 'SP0018', 'SZ3371', 10, 10
+EXEC insertsanphamcosize 'SP0018', 'SZ0557', 10, 10
+EXEC insertsanphamcosize 'SP0018', 'SZ7610', 10, 10
+
+EXEC insertsanphamcosize 'SP0019', 'SZ0499', 10, 10
+EXEC insertsanphamcosize 'SP0019', 'SZ2336', 10, 10
+EXEC insertsanphamcosize 'SP0019', 'SZ5133', 10, 10
+EXEC insertsanphamcosize 'SP0019', 'SZ9084', 10, 10
+EXEC insertsanphamcosize 'SP0019', 'SZ3371', 10, 10
+EXEC insertsanphamcosize 'SP0019', 'SZ0557', 10, 10
+EXEC insertsanphamcosize 'SP0019', 'SZ7610', 10, 10
+
+EXEC insertsanphamcosize 'SP0020', 'SZ0499', 10, 10
+EXEC insertsanphamcosize 'SP0020', 'SZ2336', 10, 10
+EXEC insertsanphamcosize 'SP0020', 'SZ5133', 10, 10
+EXEC insertsanphamcosize 'SP0020', 'SZ9084', 10, 10
+EXEC insertsanphamcosize 'SP0020', 'SZ3371', 10, 10
+EXEC insertsanphamcosize 'SP0020', 'SZ0557', 10, 10
+EXEC insertsanphamcosize 'SP0020', 'SZ7610', 10, 10
+
+EXEC insertsanphamcosize 'SP0021', 'SZ0499', 10, 10
+EXEC insertsanphamcosize 'SP0021', 'SZ2336', 10, 10
+EXEC insertsanphamcosize 'SP0021', 'SZ5133', 10, 10
+EXEC insertsanphamcosize 'SP0021', 'SZ9084', 10, 10
+EXEC insertsanphamcosize 'SP0021', 'SZ3371', 10, 10
+EXEC insertsanphamcosize 'SP0021', 'SZ0557', 10, 10
+EXEC insertsanphamcosize 'SP0021', 'SZ7610', 10, 10
+
+EXEC insertsanphamcosize 'SP0022', 'SZ0499', 10, 10
+EXEC insertsanphamcosize 'SP0022', 'SZ2336', 10, 10
+EXEC insertsanphamcosize 'SP0022', 'SZ5133', 10, 10
+EXEC insertsanphamcosize 'SP0022', 'SZ9084', 10, 10
+EXEC insertsanphamcosize 'SP0022', 'SZ3371', 10, 10
+EXEC insertsanphamcosize 'SP0022', 'SZ0557', 10, 10
+EXEC insertsanphamcosize 'SP0022', 'SZ7610', 10, 10
+
+EXEC insertsanphamcosize 'SP0023', 'SZ0499', 10, 10
+EXEC insertsanphamcosize 'SP0023', 'SZ2336', 10, 10
+EXEC insertsanphamcosize 'SP0023', 'SZ5133', 10, 10
+EXEC insertsanphamcosize 'SP0023', 'SZ9084', 10, 10
+EXEC insertsanphamcosize 'SP0023', 'SZ3371', 10, 10
+EXEC insertsanphamcosize 'SP0023', 'SZ0557', 10, 10
+EXEC insertsanphamcosize 'SP0023', 'SZ7610', 10, 10
+
+EXEC insertsanphamcosize 'SP0024', 'SZ0499', 10, 10
+EXEC insertsanphamcosize 'SP0024', 'SZ2336', 10, 10
+EXEC insertsanphamcosize 'SP0024', 'SZ5133', 10, 10
+EXEC insertsanphamcosize 'SP0024', 'SZ9084', 10, 10
+EXEC insertsanphamcosize 'SP0024', 'SZ3371', 10, 10
+EXEC insertsanphamcosize 'SP0024', 'SZ0557', 10, 10
+EXEC insertsanphamcosize 'SP0024', 'SZ7610', 10, 10
+
+EXEC insertsanphamcosize 'SP0025', 'SZ0499', 10, 10
+EXEC insertsanphamcosize 'SP0025', 'SZ2336', 10, 10
+EXEC insertsanphamcosize 'SP0025', 'SZ5133', 10, 10
+EXEC insertsanphamcosize 'SP0025', 'SZ9084', 10, 10
+EXEC insertsanphamcosize 'SP0025', 'SZ3371', 10, 10
+EXEC insertsanphamcosize 'SP0025', 'SZ0557', 10, 10
+EXEC insertsanphamcosize 'SP0025', 'SZ7610', 10, 10
+
+EXEC insertsanphamcosize 'SP0026', 'SZ0499', 10, 10
+EXEC insertsanphamcosize 'SP0026', 'SZ2336', 10, 10
+EXEC insertsanphamcosize 'SP0026', 'SZ5133', 10, 10
+EXEC insertsanphamcosize 'SP0026', 'SZ9084', 10, 10
+EXEC insertsanphamcosize 'SP0026', 'SZ3371', 10, 10
+EXEC insertsanphamcosize 'SP0026', 'SZ0557', 10, 10
+EXEC insertsanphamcosize 'SP0026', 'SZ7610', 10, 10
+
+EXEC insertsanphamcosize 'SP0027', 'SZ0499', 10, 10
+EXEC insertsanphamcosize 'SP0027', 'SZ2336', 10, 10
+EXEC insertsanphamcosize 'SP0027', 'SZ5133', 10, 10
+EXEC insertsanphamcosize 'SP0027', 'SZ9084', 10, 10
+EXEC insertsanphamcosize 'SP0027', 'SZ3371', 10, 10
+EXEC insertsanphamcosize 'SP0027', 'SZ0557', 10, 10
+EXEC insertsanphamcosize 'SP0027', 'SZ7610', 10, 10
+
+EXEC insertsanphamcosize 'SP0028', 'SZ0499', 10, 10
+EXEC insertsanphamcosize 'SP0028', 'SZ2336', 10, 10
+EXEC insertsanphamcosize 'SP0028', 'SZ5133', 10, 10
+EXEC insertsanphamcosize 'SP0028', 'SZ9084', 10, 10
+EXEC insertsanphamcosize 'SP0028', 'SZ3371', 10, 10
+EXEC insertsanphamcosize 'SP0028', 'SZ0557', 10, 10
+EXEC insertsanphamcosize 'SP0028', 'SZ7610', 10, 10
+
+EXEC insertsanphamcosize 'SP0029', 'SZ2930', 10, 10
+EXEC insertsanphamcosize 'SP0029', 'SZ0334', 10, 10
+EXEC insertsanphamcosize 'SP0029', 'SZ5908', 10, 10
+EXEC insertsanphamcosize 'SP0029', 'SZ5674', 10, 10
+EXEC insertsanphamcosize 'SP0029', 'SZ8505', 10, 10
+EXEC insertsanphamcosize 'SP0029', 'SZ3109', 10, 10
+
+EXEC insertsanphamcosize 'SP0030', 'SZ2930', 10, 10
+EXEC insertsanphamcosize 'SP0030', 'SZ0334', 10, 10
+EXEC insertsanphamcosize 'SP0030', 'SZ5908', 10, 10
+EXEC insertsanphamcosize 'SP0030', 'SZ5674', 10, 10
+EXEC insertsanphamcosize 'SP0030', 'SZ8505', 10, 10
+EXEC insertsanphamcosize 'SP0030', 'SZ3109', 10, 10
+
+EXEC insertsanphamcosize 'SP0031', 'SZ2930', 10, 10
+EXEC insertsanphamcosize 'SP0031', 'SZ0334', 10, 10
+EXEC insertsanphamcosize 'SP0031', 'SZ5908', 10, 10
+EXEC insertsanphamcosize 'SP0031', 'SZ5674', 10, 10
+EXEC insertsanphamcosize 'SP0031', 'SZ8505', 10, 10
+EXEC insertsanphamcosize 'SP0031', 'SZ3109', 10, 10
+
+EXEC insertsanphamcosize 'SP0032', 'SZ2930', 10, 10
+EXEC insertsanphamcosize 'SP0032', 'SZ0334', 10, 10
+EXEC insertsanphamcosize 'SP0032', 'SZ5908', 10, 10
+EXEC insertsanphamcosize 'SP0032', 'SZ5674', 10, 10
+EXEC insertsanphamcosize 'SP0032', 'SZ8505', 10, 10
+EXEC insertsanphamcosize 'SP0032', 'SZ3109', 10, 10
+
+EXEC insertsanphamcosize 'SP0033', 'SZ2930', 10, 10
+EXEC insertsanphamcosize 'SP0033', 'SZ0334', 10, 10
+EXEC insertsanphamcosize 'SP0033', 'SZ5908', 10, 10
+EXEC insertsanphamcosize 'SP0033', 'SZ5674', 10, 10
+EXEC insertsanphamcosize 'SP0033', 'SZ8505', 10, 10
+EXEC insertsanphamcosize 'SP0033', 'SZ3109', 10, 10
+
+EXEC insertsanphamcosize 'SP0034', 'SZ2930', 10, 10
+EXEC insertsanphamcosize 'SP0034', 'SZ0334', 10, 10
+EXEC insertsanphamcosize 'SP0034', 'SZ5908', 10, 10
+EXEC insertsanphamcosize 'SP0034', 'SZ5674', 10, 10
+EXEC insertsanphamcosize 'SP0034', 'SZ8505', 10, 10
+EXEC insertsanphamcosize 'SP0034', 'SZ3109', 10, 10
+
+EXEC insertsanphamcosize 'SP0035', 'SZ2930', 10, 10
+EXEC insertsanphamcosize 'SP0035', 'SZ0334', 10, 10
+EXEC insertsanphamcosize 'SP0035', 'SZ5908', 10, 10
+EXEC insertsanphamcosize 'SP0035', 'SZ5674', 10, 10
+EXEC insertsanphamcosize 'SP0035', 'SZ8505', 10, 10
+EXEC insertsanphamcosize 'SP0035', 'SZ3109', 10, 10
+
+EXEC insertsanphamcosize 'SP0036', 'SZ2930', 10, 10
+EXEC insertsanphamcosize 'SP0036', 'SZ0334', 10, 10
+EXEC insertsanphamcosize 'SP0036', 'SZ5908', 10, 10
+EXEC insertsanphamcosize 'SP0036', 'SZ5674', 10, 10
+EXEC insertsanphamcosize 'SP0036', 'SZ8505', 10, 10
+EXEC insertsanphamcosize 'SP0036', 'SZ3109', 10, 10
 
 
 ----INSERT donhang
